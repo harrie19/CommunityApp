@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// FILE: CommunityApp/gradlew
+>>>>>>> 348b4a1 (Initial upload of CommunityApp version)
 #!/bin/sh
 
 #

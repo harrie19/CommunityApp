@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// FILE: CommunityApp/app/src/main/res/values/colors.xml
+>>>>>>> 348b4a1 (Initial upload of CommunityApp version)
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
