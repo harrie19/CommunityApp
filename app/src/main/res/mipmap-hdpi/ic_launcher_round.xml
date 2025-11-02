@@ -1,9 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // FILE: CommunityApp/app/src/main/res/mipmap-hdpi/ic_launcher_round.xml
 >>>>>>> 348b4a1 (Initial upload of CommunityApp version)
+=======
+>>>>>>> 89fa5c0 (Update .gitignore and remove ignored files from index)
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@android:color/white"/>
-    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
 </adaptive-icon>

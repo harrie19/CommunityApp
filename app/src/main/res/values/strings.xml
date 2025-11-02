@@ -1,9 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">CommunityApp</string>
 =======
 // FILE: CommunityApp/app/src/main/res/values/strings.xml
+=======
+>>>>>>> 89fa5c0 (Update .gitignore and remove ignored files from index)
 <resources>
     <string name="app_name">Bahai Community</string>
     <string name="feed">Feed</string>

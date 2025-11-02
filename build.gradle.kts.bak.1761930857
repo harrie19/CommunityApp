@@ -1,0 +1,16 @@
+/*
+ Minimal root build.gradle.kts
+ Pluginauflösung / Versionen werden in settings.gradle.kts geregelt.
+ Module applizieren ihre Plugins in app/build.gradle.kts etc.
+*/
+plugins {
+    // root intentionally empty
+}
+
+allprojects {
+    // gemeinsame Repositories (falls benötigt)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}

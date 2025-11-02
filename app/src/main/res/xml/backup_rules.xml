@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // FILE: CommunityApp/app/src/main/res/xml/backup_rules.xml
 >>>>>>> 348b4a1 (Initial upload of CommunityApp version)
+=======
+>>>>>>> 89fa5c0 (Update .gitignore and remove ignored files from index)
 <?xml version="1.0" encoding="utf-8"?>
 <full-backup-content>
     <include domain="sharedpref" path="."/>
