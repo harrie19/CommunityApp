@@ -208,13 +208,16 @@ fun CreatePostScreen(
                 }
             }
             
-            if (uiState.error != null) {
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = uiState.error,
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.bodyMedium
-                )
+            val error = uiState.error
+if (error != null) {
+    Spacer(modifier = Modifier.height(16.dp))
+    Text(
+        text = error,
+        color = MaterialTheme.colorScheme.error,
+        style = MaterialTheme.typography.bodyMedium
+    )
+}
+
             }
         }
     }

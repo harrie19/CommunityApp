@@ -92,7 +92,13 @@ fun ProfileScreen(
                 .padding(32.dp),
             contentAlignment = Alignment.Center
         ) {
-            if (uiState.user != null) {
+            val user = uiState.user
+if (user != null) {
+    // ersetze uiState.user.xxx durch user.xxx
+    val bio = user.bio
+    // nutze bio weiter wie vorher
+}
+) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
