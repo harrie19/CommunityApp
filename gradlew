@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// FILE: CommunityApp/gradlew
->>>>>>> 348b4a1 (Initial upload of CommunityApp version)
-=======
->>>>>>> 89fa5c0 (Update .gitignore and remove ignored files from index)
 #!/bin/sh
 
 #
