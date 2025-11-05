@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+flask
+plotly
+scikit-learn

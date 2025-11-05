@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  community-api:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+version: '3.8'
+
+services:
+  community-api:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+
+  dashboard:
+    build: .
+    command: python3 dashboard.py
+    ports:
+      - "5050:5050"
+    restart: always

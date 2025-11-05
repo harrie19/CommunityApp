@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Community KI</title>
+  <style>
+    body { font-family: sans-serif; margin: 40px; }
+    input { width: 60px; margin: 5px; }
+    button { margin: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Community KI</h1>
+  <p>Gib 10 Features ein:</p>
+  <div id="inputs"></div>
+  <button onclick="predict()">Vorhersage starten</button>
+  <p id="result">Vorhersage: </p>
+  <button onclick="sendFeedback(1)">Hilfreich</button>
+  <button onclick="sendFeedback(0)">Nicht hilfreich</button>
+  <button onclick="retrain()">Retraining starten</button>
+
+  <script>
+    const inputDiv = document.getElementById("inputs");
+    for (let i = 0; i < 10; i++) {
+      const input = document.createElement("input");
+      input.type = "number";
+      input.id = "f" + i;
+      inputDiv.appendChild(input);
+    }
+
+    function getFeatures() {
+      return Array.from({length: 10}, (_, i) => parseFloat(document.getElementById("f" + i).value));
+    }
+
+    async function predict() {
+      const features = getFeatures();
+      const res = await fetch("http://127.0.0.1:8000/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ features })
+      });
+      const data = await res.json();
+      document.getElementById("result").innerText = "Vorhersage: " + (data.prediction === 1 ? "Hilfreich" : "Nicht hilfreich");
+    }
+
+    async function sendFeedback(label) {
+      const features = getFeatures();
+      await fetch("http://127.0.0.1:8000/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ features, label })
+      });
+      alert("Feedback gespeichert");
+    }
+
+    async function retrain() {
+      const res = await fetch("http://127.0.0.1:8000/retrain", { method: "POST" });
+      const data = await res.json();
+      alert(data.status || data.error);
+    }
+  </script>
+</body>
+</html>
+
