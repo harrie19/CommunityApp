@@ -1,0 +1,25 @@
+build:
+  maxIssues: 10
+  excludeCorrectable: false
+
+config:
+  validation: true
+
+# Rules from the formatting plugin are automatically enabled.
+# You can customize them here if needed.
+formatting:
+  Indentation:
+    active: true
+    indentSize: 4
+  NoWildcardImports:
+    active: true
+  FinalNewline:
+    active: true
+
+# Example of overriding a style rule from the default config
+style:
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+  MagicNumber:
+    active: false
