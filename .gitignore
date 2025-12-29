@@ -17,3 +17,7 @@ local.properties
 # Node.js
 node_modules/
 .env
+
+# Client build output
+client/dist/
+client/node_modules/
