@@ -3,5 +3,5 @@ import { env } from './env.js';
 
 app.listen(env.PORT, () => {
   console.log(`🛡️  UMAJA-OMEGA AKTIV AUF PORT ${env.PORT}`);
-  console.log(`⚖️  SPLIT-RESONANZ: ${env.SPLIT_ARCHITECT}/${env.SPLIT_JUSTICE}`);
+  console.log(`⚖️  RESONANZ: ${env.SPLIT_ARCHITECT}/${env.SPLIT_JUSTICE}`);
 });

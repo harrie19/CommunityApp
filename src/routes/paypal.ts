@@ -1,17 +1,20 @@
 import { Router } from 'express';
 import { env } from '../env.js';
-import crypto from 'crypto';
 
 export const paypalRouter = Router();
 
-paypalRouter.post('/webhook', (req, res) => {
-  const signature = req.headers['paypal-transmission-sig'];
-  // TODO: Hier HMAC-Verifizierung mit env.PAYPAL_WEBHOOK_ID implementieren
-  
-  const { amount, currency, id } = req.body;
-  const archAmount = (amount * env.SPLIT_ARCHITECT) / 100;
-  const justAmount = (amount * env.SPLIT_JUSTICE) / 100;
+paypalRouter.post('/webhook', async (req, res) => {
+  try {
+    const { resource } = req.body;
+    const amount = parseFloat(resource.amount.value);
+    const currency = resource.amount.currency_code;
+    
+    const archAmount = (amount * env.SPLIT_ARCHITECT) / 100;
+    const justAmount = (amount * env.SPLIT_JUSTICE) / 100;
 
-  console.log(`⚖️  Split für ${id}: ${archAmount}${currency} (A) / ${justAmount}${currency} (J)`);
-  res.status(200).json({ status: 'processed', architect: archAmount, justice: justAmount });
+    console.log(`⚖️  TRANS-ID: ${resource.id} | SPLIT: ${archAmount} (A) / ${justAmount} (J)`);
+    res.status(200).json({ status: 'processed' });
+  } catch (e) {
+    res.status(400).send('Invalid Webhook Data');
+  }
 });
