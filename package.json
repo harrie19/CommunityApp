@@ -1,9 +1,10 @@
 {
-  "name": "umaja-backend",
-  "version": "1.0.0",
+  "name": "umaja-backend-v2-1",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
-    "dev": "node --loader ts-node/esm src/server.ts"
+    "dev": "node --loader ts-node/esm src/server.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "express": "^4.18.2",
