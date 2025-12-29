@@ -4,32 +4,34 @@ import cors from 'cors';
 const app = express();
 const PORT = 8080;
 
-// Erlaube Frontend-Zugriff
+// ALLOW FRONTEND ACCESS
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-// 81/19 Protokoll (Simulation)
+// SIMULATION LOGIC: 81/19 PROTOCOL
 function get819Split() {
     return { architect: 81, justice: 19, compliant: true };
 }
 
-// HDC 12-28% Simulation (Hardware-Resonanz)
+// SIMULATION LOGIC: HDC RESONANCE (12-28%)
 function getHDCEfficiency() {
     return parseFloat((12 + Math.random() * 16).toFixed(1));
 }
 
-// Health Endpoint für Dashboard
+// HEALTH ENDPOINT
 app.get('/health', (req, res) => {
+    console.log('Health check received');
     res.json({
         status: 'HEALTHY',
-        version: '2.2.0',
+        mode: 'SIMULATION',
+        version: '2.2.0-STABLE',
         timestamp: new Date().toISOString(),
         protocols: {
-            hdc: { efficiency: getHDCEfficiency(), target: '12-28%' },
+            hdc: { efficiency: getHDCEfficiency(), unit: '%', target: '12-28%' },
             huququh: get819Split()
         }
     });
 });
 
 app.listen(PORT, () => {
-    console.log(`✅ UMAJA Backend v2.2 (SIMULATION): http://localhost:${PORT}/health`);
+    console.log(`✅ UMAJA CORE ACTIVE: http://localhost:${PORT}/health`);
 });

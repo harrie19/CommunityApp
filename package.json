@@ -1,8 +1,9 @@
 {
-  "name": "umaja-backend",
+  "name": "umaja-omega-core",
   "version": "2.2.0",
+  "type": "module",
   "scripts": {
-    "dev": "ts-node src/server.ts"
+    "dev": "node --loader ts-node/esm src/server.ts"
   },
   "dependencies": {
     "express": "^4.18.2",
