@@ -1,13 +1,13 @@
 import { z } from 'zod';
 import dotenv from 'dotenv';
 dotenv.config();
-const schema = z.object({
-  PORT: z.string().default('3000').transform(Number),
-  SPLIT_A: z.string().default('81').transform(Number),
-  SPLIT_B: z.string().default('19').transform(Number)
+
+const envSchema = z.object({
+  PORT: z.coerce.number().default(3000),
+  SPLIT_ARCHITECT: z.coerce.number().min(0).max(100).default(81),
+  SPLIT_JUSTICE: z.coerce.number().min(0).max(100).default(19),
+}).refine((data) => data.SPLIT_ARCHITECT + data.SPLIT_JUSTICE === 100, {
+  message: "Huqúqu'lláh-Protokoll verletzt: Summe muss 100 sein"
 });
-export const env = schema.parse(process.env);
-if (env.SPLIT_A + env.SPLIT_B !== 100) {
-  console.error("❌ ERROR: Split ungültig!");
-  process.exit(1);
-}
+
+export const env = envSchema.parse(process.env);
