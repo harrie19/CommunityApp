@@ -11,7 +11,7 @@ This application simulates two key protocols:
 
 ## Prerequisites
 
-- Node.js (v18 or higher recommended)
+- Node.js (v18 or higher)
 - npm (comes with Node.js)
 - Git
 
@@ -85,7 +85,7 @@ The server will start on `http://localhost:8080`. You can verify it's running by
 
 ## Development
 
-The server uses `ts-node` with ESM loader for TypeScript execution. Changes to source files will require restarting the server.
+The server uses `ts-node` with ESM loader for TypeScript execution. Changes to source files will require manually restarting the server. Hot reload functionality can be added with additional tooling if needed (e.g., nodemon).
 
 ## Version
 
